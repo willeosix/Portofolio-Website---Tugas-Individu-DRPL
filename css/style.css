@@ -553,6 +553,12 @@ p {
   position: relative;
 }
 
+.project-card-image-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
 .project-card-image-bg::after {
   content: '';
   position: absolute;
