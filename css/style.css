@@ -390,13 +390,6 @@ p {
   box-shadow: var(--shadow-gold);
 }
 
-.social-bar a svg,
-.footer-socials a svg {
-  width: 20px;
-  height: 20px;
-  display: block;
-}
-
 /* ============================================
    INNER PAGES — Common Styles
    ============================================ */
@@ -935,11 +928,6 @@ p {
     width: 36px;
     height: 36px;
     font-size: 0.95rem;
-  }
-
-  .social-bar a svg {
-    width: 18px;
-    height: 18px;
   }
 
   .projects-grid {
