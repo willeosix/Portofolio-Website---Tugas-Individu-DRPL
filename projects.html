@@ -1,14 +1,131 @@
 <!DOCTYPE html>
-<html lang="en">
+<html class="dark" lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
   <meta name="description" content="Christian Wilfredo's IT Projects — Web development, IoT, and systems projects in Information Systems & Technology.">
-  <title>IT Projects | Christian Wilfredo</title>
-  <link rel="stylesheet" href="css/style.css">
+  <title>Christian Wilfredo | IT Projects</title>
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect"/>
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet"/>
 
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            primary: "#c9a84c", // Our Gold
+            "on-primary": "#121212",
+            "primary-container": "#2A2312",
+            "on-primary-container": "#F5E6CC",
+            surface: "#121224", // Navy Dark
+            "on-surface": "#f5f0e8", // Cream
+            "on-surface-variant": "rgba(245, 240, 232, 0.6)",
+            outline: "#4D4D4D",
+            "outline-variant": "rgba(245, 240, 232, 0.1)",
+            cream: "#f5f0e8",
+            navy: {
+              DEFAULT: "#1a1a2e",
+              light: "#22223a",
+              dark: "#121224"
+            },
+            burgundy: {
+              DEFAULT: "#6b2737",
+              light: "#7d3347",
+              dark: "#531d2b"
+            }
+          },
+          borderRadius: {
+            "DEFAULT": "1rem",
+            "lg": "2rem",
+            "xl": "3rem",
+            "full": "9999px"
+          },
+          fontFamily: {
+            headline: ["Playfair Display", "serif"],
+            display: ["Playfair Display", "serif"],
+            body: ["Inter", "sans-serif"],
+            label: ["Inter", "sans-serif"]
+          }
+        },
+      },
+    }
+  </script>
+  
+  <style>
+    body {
+      background-color: #121224;
+      color: #f5f0e8;
+      overflow-x: hidden;
+    }
+    .glass-card {
+      background: rgba(255, 255, 255, 0.02);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    }
+    .glass-card:hover {
+      border-color: rgba(201, 168, 76, 0.3);
+      box-shadow: 0 20px 40px -15px rgba(201, 168, 76, 0.15);
+      transform: translateY(-4px);
+    }
+    .gold-glow {
+      text-shadow: 0 0 15px rgba(201, 168, 76, 0.2);
+    }
+    ::-webkit-scrollbar { width: 4px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: #c9a84c; border-radius: 10px; }
+
+    /* Scroll Reveal Animation Styles */
+    .reveal {
+      opacity: 0;
+      transform: translateY(25px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.4s; }
+
+    /* Back Button */
+    .back-btn {
+      position: fixed;
+      top: 2rem;
+      left: 2rem;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.85rem;
+      color: #f5f0e8;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 0.6rem 1.2rem;
+      border: 1px solid rgba(245, 240, 232, 0.2);
+      border-radius: 30px;
+      background: rgba(0, 0, 0, 0.2);
+      backdrop-filter: blur(10px);
+      transition: all 0.3s ease;
+    }
+    .back-btn:hover {
+      border-color: #c9a84c;
+      color: #c9a84c;
+      background: rgba(201, 168, 76, 0.1);
+      transform: translateX(-3px);
+    }
+  </style>
 </head>
-<body class="page-enter">
+
+<body class="page-enter font-body selection:bg-primary selection:text-on-primary">
 
   <!-- Back Button -->
   <a href="index.html" class="back-btn" id="backBtn">
@@ -16,133 +133,194 @@
     <span>Back</span>
   </a>
 
-  <div class="projects-page">
-
-    <!-- Hero -->
-    <header class="page-hero">
-      <span class="page-label">Christian Wilfredo</span>
-      <h1>IT Projects</h1>
-      <p class="hero-desc">A collection of web applications, IoT systems, and digital solutions built during my journey in Information Systems &amp; Technology.</p>
+  <!-- Main Projects Showcase -->
+  <main class="pt-36 pb-20 px-6 md:px-16 lg:px-24 max-w-7xl mx-auto">
+    
+    <!-- Hero Header -->
+    <header class="max-w-4xl mb-24 relative reveal">
+      <div class="absolute -top-20 -left-20 w-64 h-64 bg-primary/5 rounded-full blur-[100px]"></div>
+      <span class="font-headline text-primary text-xs uppercase tracking-[0.4em] mb-4 block">Christian Wilfredo</span>
+      <h1 class="font-display text-7xl md:text-8xl italic gold-glow mb-6 text-on-surface">IT Projects</h1>
+      <p class="text-on-surface-variant text-lg md:text-xl max-w-2xl leading-relaxed">
+        A collection of web applications, IoT systems, and digital solutions built during my journey in Information Systems &amp; Technology.
+      </p>
     </header>
 
-    <!-- Projects Grid -->
-    <section class="projects-grid" id="projectsGrid">
-
-      <!-- Project 1 — Real Project -->
-      <article class="project-card reveal reveal-delay-1" id="project-1">
-        <div class="project-card-image-bg card-bg-1">
-          <img src="assets/images/nimonscooked.jpg" alt="NimonsCooked UI">
-        </div>
-        <div class="project-card-body">
-          <h3>NimonsCooked — OOP Game</h3>
-          <p>An Overcooked-inspired cooking simulation game built as a team project for Object-Oriented Programming (IF2040). Features chef characters, item management, map systems, and a game engine — all structured with MVC architecture.</p>
-          <div class="project-tags">
-            <span class="project-tag">Java</span>
-            <span class="project-tag">JavaFX</span>
-            <span class="project-tag">OOP</span>
-            <span class="project-tag">MVC</span>
-            <span class="project-tag">Gradle</span>
+    <!-- Bento Grid Showcase -->
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-8" id="projectsGrid">
+      
+      <!-- Project 1: NimonsCooked (Featured md:col-span-8) -->
+      <article class="md:col-span-8 group reveal reveal-delay-1">
+        <div class="glass-card rounded-lg h-full overflow-hidden flex flex-col">
+          <div class="relative h-72 overflow-hidden border-b border-outline-variant">
+            <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-102" src="assets/images/nimonscooked.jpg" alt="NimonsCooked Gameplay UI"/>
+            <div class="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-transparent opacity-65"></div>
           </div>
-          <a href="https://github.com/ask4gaje/Tugas-Besar-IF2040-Pemrograman-Beriorientasi-Objek-J" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:0.4rem;margin-top:0.8rem;font-size:0.82rem;color:var(--gold);letter-spacing:0.05em;text-transform:uppercase;font-weight:500;">View on GitHub <span style="font-size:1rem;">→</span></a>
+          <div class="p-8 flex-1 flex flex-col">
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="px-2.5 py-0.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-[10px] font-bold uppercase tracking-widest">Java</span>
+              <span class="px-2.5 py-0.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-[10px] font-bold uppercase tracking-widest">JavaFX</span>
+              <span class="px-2.5 py-0.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-[10px] font-bold uppercase tracking-widest">OOP</span>
+              <span class="px-2.5 py-0.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-[10px] font-bold uppercase tracking-widest">MVC</span>
+            </div>
+            <h3 class="text-2xl font-headline font-bold mb-3 text-on-surface">NimonsCooked — OOP Game</h3>
+            <p class="text-on-surface-variant text-sm leading-relaxed mb-6">
+              An Overcooked-inspired cooking simulation game built as a team project for Object-Oriented Programming (IF2040). Features chef characters, item management, map systems, and a game engine — all structured with MVC architecture.
+            </p>
+            <div class="mt-auto pt-4 flex items-center justify-between border-t border-outline-variant">
+              <a class="inline-flex items-center space-x-2 text-primary font-bold hover:underline" href="https://github.com/ask4gaje/Tugas-Besar-IF2040-Pemrograman-Beriorientasi-Objek-J" target="_blank" rel="noopener">
+                <span>View on GitHub</span>
+                <span class="text-xs">→</span>
+              </a>
+            </div>
+          </div>
         </div>
       </article>
 
-      <!-- Project 2 — Real Project -->
-      <article class="project-card reveal reveal-delay-2" id="project-2">
-        <div class="project-card-image-bg card-bg-2">
-          <img src="assets/images/carbonly.png" alt="Carbonly UI">
-        </div>
-        <div class="project-card-body">
-          <h3>Carbonly — Carbon Footprint Tracker</h3>
-          <p>A cross-platform desktop application for tracking daily carbon emissions. Features activity logging, emission estimation using CO₂ coefficients, daily target monitoring, Fluent Design UI, and secure user authentication with Argon2id hashing.</p>
-          <div class="project-tags">
-            <span class="project-tag">Python</span>
-            <span class="project-tag">PyQt6</span>
-            <span class="project-tag">SQLite</span>
-            <span class="project-tag">Fluent UI</span>
-            <span class="project-tag">PyInstaller</span>
+      <!-- Project 2: Carbonly (Side md:col-span-4) -->
+      <article class="md:col-span-4 group reveal reveal-delay-2">
+        <div class="glass-card rounded-lg h-full overflow-hidden flex flex-col">
+          <div class="relative h-48 overflow-hidden border-b border-outline-variant">
+            <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-102" src="assets/images/carbonly.png" alt="Carbonly Dashboard UI"/>
+            <div class="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-transparent opacity-65"></div>
           </div>
-          <a href="https://github.com/ZulfaNurhuda/IF2050-2026-K02-G10-Carbonly" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:0.4rem;margin-top:0.8rem;font-size:0.82rem;color:var(--gold);letter-spacing:0.05em;text-transform:uppercase;font-weight:500;">View on GitHub <span style="font-size:1rem;">→</span></a>
+          <div class="p-8 flex-1 flex flex-col">
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="px-2.5 py-0.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-[10px] font-bold uppercase tracking-widest">Python</span>
+              <span class="px-2.5 py-0.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-[10px] font-bold uppercase tracking-widest">PyQt6</span>
+              <span class="px-2.5 py-0.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-[10px] font-bold uppercase tracking-widest">SQLite</span>
+            </div>
+            <h3 class="text-xl font-headline font-bold mb-3 text-on-surface">Carbonly — Emission Tracker</h3>
+            <p class="text-on-surface-variant text-xs leading-relaxed mb-6">
+              A cross-platform desktop application for tracking carbon emissions. Features activity logging, CO₂ estimates, target monitoring, and Fluent Design UI.
+            </p>
+            <div class="mt-auto pt-4 flex items-center justify-between border-t border-outline-variant">
+              <a class="inline-flex items-center space-x-2 text-primary font-bold hover:underline" href="https://github.com/ZulfaNurhuda/IF2050-2026-K02-G10-Carbonly" target="_blank" rel="noopener">
+                <span>View Repository</span>
+                <span class="text-xs">→</span>
+              </a>
+            </div>
+          </div>
         </div>
       </article>
 
-      <!-- Project 3 — Real Project -->
-      <article class="project-card reveal reveal-delay-3" id="project-3">
-        <div class="project-card-image-bg card-bg-3">
-          <span>🤖</span>
-        </div>
-        <div class="project-card-body">
-          <h3>Google Form Auto-Filler</h3>
-          <p>A Playwright-based automation script that fills Google Forms with realistic human-like data. Features offline generation, skewed bell-curve distributions for Likert scales, smart text handling that differentiates question types, and advanced grid detection.</p>
-          <div class="project-tags">
-            <span class="project-tag">Python</span>
-            <span class="project-tag">Playwright</span>
-            <span class="project-tag">Automation</span>
-            <span class="project-tag">Faker</span>
+      <!-- Project 3: TransUm (Wide md:col-span-8) -->
+      <article class="md:col-span-8 group reveal reveal-delay-3">
+        <div class="glass-card rounded-lg h-full overflow-hidden flex flex-col">
+          <div class="relative h-72 overflow-hidden border-b border-outline-variant">
+            <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-102" src="assets/images/transum.png" alt="TransUm Public Transportation Dashboard"/>
+            <div class="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-transparent opacity-65"></div>
           </div>
-          <a href="https://github.com/willeosix/Pengisi-Google-Form-Otomatis" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:0.4rem;margin-top:0.8rem;font-size:0.82rem;color:var(--gold);letter-spacing:0.05em;text-transform:uppercase;font-weight:500;">View on GitHub <span style="font-size:1rem;">→</span></a>
+          <div class="p-8 flex-1 flex flex-col">
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="px-2.5 py-0.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-[10px] font-bold uppercase tracking-widest">IoT</span>
+              <span class="px-2.5 py-0.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-[10px] font-bold uppercase tracking-widest">Next.js</span>
+              <span class="px-2.5 py-0.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-[10px] font-bold uppercase tracking-widest">ESP32</span>
+              <span class="px-2.5 py-0.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-[10px] font-bold uppercase tracking-widest">Supabase</span>
+            </div>
+            <h3 class="text-2xl font-headline font-bold mb-3 text-on-surface">TransUm — Smart Transportation</h3>
+            <p class="text-on-surface-variant text-sm leading-relaxed mb-6">
+              An IoT passenger detection system and Next.js web dashboard for Trans Metro Bandung (TMB). Streams occupancy metrics via MQTT, displays statistics locally on LED dot matrices, and visualizes route maps using Leaflet.js.
+            </p>
+            <div class="mt-auto pt-4 flex items-center justify-between border-t border-outline-variant">
+              <a class="inline-flex items-center space-x-2 text-primary font-bold hover:underline" href="https://github.com/nicholasphalim/Transum-Dashboard/tree/fredo" target="_blank" rel="noopener">
+                <span>View Dashboard</span>
+                <span class="text-xs">→</span>
+              </a>
+            </div>
+          </div>
         </div>
       </article>
 
-      <!-- Project 4 — Real Project -->
-      <article class="project-card reveal reveal-delay-4" id="project-4">
-        <div class="project-card-image-bg card-bg-4">
-          <img src="assets/images/transum.png" alt="TransUm UI">
-        </div>
-        <div class="project-card-body">
-          <h3>TransUm — Smart Public Transportation</h3>
-          <p>An IoT-integrated passenger detection system and Next.js web dashboard for Trans Metro Bandung (TMB). Streams real-time bus and stop occupancy statistics via MQTT, displays local count on MAX7219 LED dot matrices, and visualizes route data using Leaflet.js and Supabase.</p>
-          <div class="project-tags">
-            <span class="project-tag">IoT</span>
-            <span class="project-tag">Next.js</span>
-            <span class="project-tag">ESP32</span>
-            <span class="project-tag">MQTT</span>
-            <span class="project-tag">Leaflet.js</span>
-            <span class="project-tag">Supabase</span>
+      <!-- Project 4: Google Form Auto-Filler (Side Statistics Card style md:col-span-4) -->
+      <article class="md:col-span-4 group reveal reveal-delay-4">
+        <div class="glass-card rounded-lg h-full p-8 flex flex-col">
+          <div class="flex justify-between items-start mb-8">
+            <div>
+              <div class="flex gap-2 mb-3">
+                <span class="px-2 py-0.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-[10px] font-bold uppercase tracking-widest">Automation</span>
+              </div>
+              <h3 class="text-xl font-headline font-bold text-on-surface leading-tight">Google Form Auto-Filler</h3>
+            </div>
+            <div class="w-12 h-12 bg-white/5 border border-primary/20 flex items-center justify-center rounded-xl text-primary text-2xl">
+              🤖
+            </div>
           </div>
-          <a href="https://github.com/nicholasphalim/Transum-Dashboard/tree/fredo" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:0.4rem;margin-top:0.8rem;font-size:0.82rem;color:var(--gold);letter-spacing:0.05em;text-transform:uppercase;font-weight:500;">View on GitHub <span style="font-size:1rem;">→</span></a>
+          
+          <p class="text-on-surface-variant text-xs leading-relaxed mb-8 flex-1">
+            A Playwright-based automation script that fills Google Forms with realistic human-like data. Features offline generations, skewed bell-curve distributions for Likert scales, and advanced grid question detection.
+          </p>
+
+          <div class="grid grid-cols-2 gap-3 mb-6">
+            <div class="p-3 bg-white/2 border border-white/5 rounded-lg text-center">
+              <span class="block text-[9px] text-on-surface-variant mb-1 uppercase tracking-wider">Engine</span>
+              <span class="text-sm font-headline font-bold text-primary">Playwright</span>
+            </div>
+            <div class="p-3 bg-white/2 border border-white/5 rounded-lg text-center">
+              <span class="block text-[9px] text-on-surface-variant mb-1 uppercase tracking-wider">Data</span>
+              <span class="text-sm font-headline font-bold text-primary">Faker API</span>
+            </div>
+          </div>
+
+          <div class="pt-4 border-t border-outline-variant">
+            <a class="inline-flex items-center space-x-2 text-primary font-bold hover:underline" href="https://github.com/willeosix/Pengisi-Google-Form-Otomatis" target="_blank" rel="noopener">
+              <span>GitHub Script</span>
+              <span class="text-xs">→</span>
+            </a>
+          </div>
         </div>
       </article>
 
+    </div>
+  </main>
 
-    </section>
-
-    <!-- Footer -->
-    <footer class="page-footer">
-      <div class="footer-name">Christian Wilfredo</div>
-      <div class="footer-socials">
-        <a href="https://www.instagram.com/chriswfredo/" target="_blank" rel="noopener" aria-label="Instagram">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 16 16" fill="currentColor">
+  <!-- Footer -->
+  <footer class="w-full py-16 px-6 md:px-16 lg:px-24 border-t border-outline-variant bg-surface mt-32">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+      <div class="text-center md:text-left">
+        <div class="text-xl font-headline font-bold text-on-surface mb-2">Christian Wilfredo</div>
+        <p class="text-xs text-on-surface-variant">
+          &copy; 2026 Christian Wilfredo. Built with diplomatic precision and athletic vigor.
+        </p>
+      </div>
+      <div class="flex gap-4">
+        <!-- Instagram -->
+        <a class="w-10 h-10 rounded-full border border-primary/20 flex items-center justify-center text-on-surface-variant hover:border-primary hover:text-primary transition-all duration-300" href="https://www.instagram.com/chriswfredo/" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
             <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.556 0 5.829 0 8c0 2.171.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 8 0zm0 1.442c2.115 0 2.366.01 3.197.046.748.033 1.155.158 1.425.26a2.382 2.382 0 0 1 .865.564c.265.265.45.573.564.864.102.27.227.677.26 1.425.036.831.046 1.082.046 3.197 0 2.115-.01 2.366-.046 3.197-.033.748-.158 1.155-.26 1.425a2.382 2.382 0 0 1-.564.864c-.265.265-.573.45-.864.564-.27.102-.677.227-1.425.26-.831.036-1.082.046-3.197.046-2.115 0-2.366-.01-3.197-.046-.748-.033-1.155-.158-1.425-.26a2.382 2.382 0 0 1-.864-.564c-.265-.265-.45-.573-.564-.864-.102-.27-.227-.677-.26-1.425-.036-.831-.046-1.082-.046-3.197 0-2.115.01-2.366.046-3.197.033-.748.158-1.155.26-1.425a2.382 2.382 0 0 1 .564-.864c.265-.265.573-.45.864-.864.27-.102.677-.227 1.425-.26.831-.036 1.082-.046 3.197-.046zM8 3.863a4.137 4.137 0 1 0 0 8.274 4.137 4.137 0 0 0 0-8.274zm0 2.169a1.968 1.968 0 1 1 0 3.937 1.968 1.968 0 0 1 0-3.937z"/>
           </svg>
         </a>
-        <a href="https://www.linkedin.com/in/christianwilfredo/" target="_blank" rel="noopener" aria-label="LinkedIn">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 16 16" fill="currentColor">
+        <!-- LinkedIn -->
+        <a class="w-10 h-10 rounded-full border border-primary/20 flex items-center justify-center text-on-surface-variant hover:border-primary hover:text-primary transition-all duration-300" href="https://www.linkedin.com/in/christianwilfredo/" target="_blank" rel="noopener" aria-label="LinkedIn">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
             <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854zm4.943 12.248V6.169H2.542v7.225zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248S2.4 3.226 2.4 3.934c0 .694.521 1.248 1.327 1.248zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225z"/>
           </svg>
         </a>
-        <a href="https://github.com/willeosix" target="_blank" rel="noopener" aria-label="GitHub">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 16 16" fill="currentColor">
+        <!-- GitHub -->
+        <a class="w-10 h-10 rounded-full border border-primary/20 flex items-center justify-center text-on-surface-variant hover:border-primary hover:text-primary transition-all duration-300" href="https://github.com/willeosix" target="_blank" rel="noopener" aria-label="GitHub">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
             <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8"/>
           </svg>
         </a>
-        <a href="https://discord.com/users/463608859408334849" target="_blank" rel="noopener" aria-label="Discord">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 16 16" fill="currentColor">
+        <!-- Discord -->
+        <a class="w-10 h-10 rounded-full border border-primary/20 flex items-center justify-center text-on-surface-variant hover:border-primary hover:text-primary transition-all duration-300" href="https://discord.com/users/463608859408334849" target="_blank" rel="noopener" aria-label="Discord">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
             <path d="M13.545 2.907a13.227 13.227 0 0 0-3.257-1.011.05.05 0 0 0-.052.025c-.141.25-.297.577-.406.833a12.19 12.19 0 0 0-3.658 0 8.258 8.258 0 0 0-.412-.833.051.051 0 0 0-.052-.025c-1.125.194-2.22.534-3.257 1.011a.041.041 0 0 0-.021.018C.356 6.024-.213 9.047.066 12.032c.001.014.01.028.021.037a13.276 13.276 0 0 0 3.995 2.02.05.05 0 0 0 .056-.019c.308-.42.582-.863.818-1.329a.05.05 0 0 0-.027-.069 8.653 8.653 0 0 1-1.17-.587.05.05 0 0 1-.005-.078c.07-.05.139-.104.205-.158a.05.05 0 0 1 .057-.005c2.42 1.107 5.04 1.107 7.44 0a.05.05 0 0 1 .057.005c.066.054.135.109.205.158a.05.05 0 0 1-.005.078 8.647 8.647 0 0 1-1.17.587.05.05 0 0 0-.027.069c.237.466.51.909.818 1.329a.05.05 0 0 0 .056.019 13.235 13.235 0 0 0 4.001-2.02.05.05 0 0 0 .021-.037c.334-3.451-.559-6.449-2.366-9.106a.034.034 0 0 0-.02-.019Zm-8.198 7.337c-.789 0-1.438-.724-1.438-1.612 0-.889.637-1.613 1.438-1.613.801 0 1.45.724 1.438 1.613 0 .888-.637 1.612-1.438 1.612Zm5.316 0c-.788 0-1.438-.724-1.438-1.612 0-.889.637-1.613 1.438-1.613.801 0 1.45.724 1.438 1.613 0 .888-.637 1.612-1.438 1.612Z"/>
           </svg>
         </a>
-        <a href="https://steamcommunity.com/id/willeosix/" target="_blank" rel="noopener" aria-label="Steam">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 16 16" fill="currentColor">
+        <!-- Steam -->
+        <a class="w-10 h-10 rounded-full border border-primary/20 flex items-center justify-center text-on-surface-variant hover:border-primary hover:text-primary transition-all duration-300" href="https://steamcommunity.com/id/willeosix/" target="_blank" rel="noopener" aria-label="Steam">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
             <path d="M.329 10.333A8.01 8.01 0 0 0 7.99 16C12.414 16 16 12.418 16 8s-3.586-8-8.009-8A8.006 8.006 0 0 0 0 7.468l.003.006 4.304 1.769A2.2 2.2 0 0 1 5.62 8.88l1.96-2.844-.001-.04a3.046 3.046 0 0 1 3.042-3.043 3.046 3.046 0 0 1 3.042 3.043 3.047 3.047 0 0 1-3.111 3.044l-2.804 2a2.223 2.223 0 0 1-3.075 2.11 2.22 2.22 0 0 1-1.312-1.568L.33 10.333Z"/>
-            <path d="M4.868 12.683a1.715 1.715 0 0 0 1.318-3.165 1.7 1.7 0 0 0-1.263-.02l1.023.424a1.261 1.261 0 1 1-.97 2.33l-.99-.41a1.7 1.7 0 0 0 .882.84Zm3.726-6.687a2.03 2.03 0 0 0 2.027 2.029 2.03 2.03 0 0 0 2.027-2.029 2.03 2.03 0 0 0-2.027-2.027 2.03 2.03 0 0 0-2.027 2.027m2.03-1.527a1.524 1.524 0 1 1-.002 3.048 1.524 1.524 0 0 1 .002-3.048"/>
+            <path d="M4.868 12.683a1.715 1.715 0 0 0 1.318-3.165 1.7 1.7 0 0 0-1.263-.02l1.023.424a1.261 1.261 0 1 1-.97 2.33l-.99-.41a1.7 1.7 0 0 0 .882.84Zm3.726-6.687a2.03 2.03 0 0 0 2.027 2.029 2.03 2.03 0 0 0 2.027-2.029 2.03 2.03 0 0 0-2.027-2.027m2.03-1.527a1.524 1.524 0 1 1-.002 3.048 1.524 1.524 0 0 1 .002-3.048"/>
           </svg>
         </a>
       </div>
-      <p class="copyright">&copy; 2026 Christian Wilfredo. All rights reserved.</p>
-    </footer>
+    </div>
+  </footer>
 
-  </div>
-
+  <!-- Main scripts -->
   <script src="js/main.js"></script>
+
 </body>
 </html>
