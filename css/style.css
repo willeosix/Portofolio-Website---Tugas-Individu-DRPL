@@ -241,6 +241,13 @@ p {
   transition: transform var(--transition-medium), opacity var(--transition-medium);
 }
 
+.panel-icon svg {
+  width: 1em;
+  height: 1em;
+  display: inline-block;
+  vertical-align: middle;
+}
+
 .panel-title {
   font-family: var(--font-heading);
   font-size: clamp(2rem, 4vw, 3.2rem);
